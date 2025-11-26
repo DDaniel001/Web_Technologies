@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzéria - Főoldal</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    /* Belső CSS a követelmények miatt  */
+    .highlighted-text {
+        color: #e74c3c; /* Pizza piros */
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    </style>
 </head>
 <body>
 
@@ -22,14 +30,36 @@
     </header>
 
     <main>
-        <section>
-            <h2>Üdvözöllek a város legjobb pizzériájában!</h2>
-            <p>Válassz friss olasz pizzáink közül.</p>
+        <section class="hero">
+            <h2>Üdvözöllek a Pizza Kingnél!</h2>
+            <p>A város legfinomabb, kemencés pizzái egy kattintásra.</p>
+            <a href="menu.html" class="cta-button">Megnézem az Étlapot</a>
+        </section>
+
+        <section style="text-align: center;">
+            <h3>Miért válassz minket?</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+                <div style="max-width: 300px; padding: 20px;">
+                    <h4>Friss Alapanyagok</h4>
+                    <p>Csak a legjobb olasz hozzávalókból dolgozunk.</p>
+                </div>
+                <div style="max-width: 300px; padding: 20px;">
+                    <h4>Gyors Házhozszállítás</h4>
+                    <p>Akár 30 perc alatt az asztalodon a pizza.</p>
+                </div>
+                <div style="max-width: 300px; padding: 20px;">
+                    <h4>Hagyományos Recept</h4>
+                    <p>Eredeti nápolyi recept alapján sütünk.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Pizza King - Minden jog fenntartva.</p>
+        <p style="font-style: italic; font-size: 0.8em; opacity: 0.8;">
+        Ez egy inline stílusú szöveg a követelmények miatt.
+        </p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

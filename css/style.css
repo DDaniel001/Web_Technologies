@@ -1,153 +1,209 @@
-/* --- General Page Styling --- */
-header { 
-    background-color: #f0f0f0; 
-    padding: 20px; 
-    text-align: center; 
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #e74c3c; /* Pizza piros */
+    --secondary-color: #c0392b; /* Sötét piros */
+    --dark-bg: #2c3e50; /* Sötétkék a menühöz */
+    --light-bg: #ecf0f1; /* Törtfehér háttér */
+    --text-color: #333;
+    --white: #ffffff;
 }
 
-/* --- Navigation Menu --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header & Navigation [cite: 18] --- */
+header { 
+    background-color: var(--dark-bg); 
+    padding: 15px 0; 
+    text-align: center; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky; /* Menü rögzítése görgetéskor */
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: var(--white);
+    margin: 0 0 10px 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
+
 nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-/* Active menu item styling */
-.aktiv {
-    font-weight: bold;
-    color: darkred;
+    display: inline-block;
+    margin: 0 15px;
 }
 
-/* --- Form Styling --- */
-.order-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+/* Linkek formázása [cite: 20] */
+nav ul li a {
+    text-decoration: none;
+    color: #bdc3c7;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.aktiv {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Main Layout --- */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: var(--white);
     border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    min-height: 60vh;
 }
 
-.form-group {
-    margin-bottom: 15px;
+h2 {
+    color: var(--dark-bg);
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* General input styling */
-input[type="text"],
-input[type="email"],
-textarea,
-input[list] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* --- Error States (Validation) --- */
-.error-border {
-    border: 2px solid red !important; /* Forces red border on error */
-    background-color: #ffe6e6;
-}
-
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    display: none; /* Hidden by default */
-}
-
-/* --- Gallery Styling --- */
-.gallery-section {
+/* --- Hero Section (Főoldalhoz) --- */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
     text-align: center;
-    padding: 20px;
-}
-
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.gallery-item {
-    border: 1px solid #ddd;
+    padding: 100px 20px;
     border-radius: 8px;
-    padding: 10px;
-    background-color: white;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease; /* CSS Transition (not jQuery) */
+    margin-bottom: 30px;
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-.gallery-item img {
-    max-width: 100%;
-    border-radius: 4px;
-}
-
-#toggle-gallery-btn {
-    background-color: #333;
+.hero h2 {
     color: white;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
 }
 
-#toggle-gallery-btn:hover {
-    background-color: #555;
-}
-
-/* --- Contact & Video Styling --- */
-.contact-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.video-wrapper {
-    max-width: 600px;
-    margin: 20px auto;
-    border: 5px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: black;
-}
-
-.video-controls {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.video-controls button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
     font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
     transition: background 0.3s;
 }
 
-#btn-play { background-color: #4CAF50; color: white; } /* Zöld */
-#btn-pause { background-color: #f44336; color: white; } /* Piros */
-#btn-mute { background-color: #ff9800; color: white; } /* Narancs */
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
 
-.video-controls button:hover {
-    opacity: 0.8;
+/* --- MODERN TÁBLÁZAT FORMÁZÁS (Kötelező elem!) [cite: 17] --- */
+/* Ez teszi modernné a kötelező táblázatot */
+#pizza-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#pizza-table thead tr {
+    background-color: var(--primary-color); /* Háttérszín [cite: 19] */
+    color: var(--white);
+    text-align: left;
+    font-weight: bold;
+}
+
+#pizza-table th, 
+#pizza-table td {
+    padding: 12px 15px;
+}
+
+#pizza-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#pizza-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#pizza-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#pizza-table tbody tr:hover {
+    background-color: #ffecec;
+    cursor: default;
+}
+
+/* --- Form Styling [cite: 21] --- */
+.order-container { max-width: 600px; margin: 0 auto; }
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; font-weight: bold; }
+
+input[type="text"], input[type="email"], textarea, input[list], input[type="date"], input[type="color"], select {
+    width: 100%; padding: 10px;
+    border: 1px solid #ccc; border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Validáció hiba design */
+.error-border { border: 2px solid red !important; background-color: #fff0f0; }
+.error-message { color: red; font-size: 0.9em; display: none; margin-top: 5px; }
+
+/* --- Gallery & Buttons --- */
+.gallery-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.gallery-item { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; background: white; padding: 10px; }
+.gallery-item:hover { transform: scale(1.03); }
+
+button {
+    background-color: var(--dark-bg);
+    color: white;
+    border: none; padding: 10px 20px;
+    border-radius: 5px; cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1rem;
+}
+button:hover { background-color: #34495e; }
+
+/* Contact Video */
+.video-wrapper { border: 5px solid var(--dark-bg); border-radius: 10px; overflow: hidden; margin-top: 20px; background: black; }
+.video-controls { padding: 10px; background: #222; display: flex; justify-content: center; gap: 10px; }
+.video-controls button { margin: 0; font-weight: bold; }
+#btn-play { background-color: #27ae60; }
+#btn-pause { background-color: #c0392b; }
+#btn-mute { background-color: #f39c12; }
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-bg);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
