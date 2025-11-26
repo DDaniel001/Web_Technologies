@@ -126,4 +126,35 @@ $(document).ready(function() {
         });
     }
 
+    // --- VIDEO CONTROL (Custom JS) ---
+
+    // Check if video exists
+    if ($('#promo-video').length) {
+        
+        // Get the native DOM element from jQuery object
+        var videoElement = $('#promo-video').get(0);
+
+        // Play Button
+        $('#btn-play').on('click', function() {
+            videoElement.play();
+        });
+
+        // Pause Button
+        $('#btn-pause').on('click', function() {
+            videoElement.pause();
+        });
+
+        // Mute Button (Toggle)
+        $('#btn-mute').on('click', function() {
+            videoElement.muted = !videoElement.muted;
+            
+            // Optional: Update button text
+            if(videoElement.muted) {
+                $(this).text("Némítás feloldása 🔊");
+            } else {
+                $(this).text("Némítás 🔇");
+            }
+        });
+    }
+
 });
