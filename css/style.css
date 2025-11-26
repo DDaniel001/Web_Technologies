@@ -61,3 +61,51 @@ input[list] {
     font-size: 0.9em;
     display: none; /* Hidden by default */
 }
+
+/* --- Gallery Styling --- */
+.gallery-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* CSS Transition (not jQuery) */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+#toggle-gallery-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#toggle-gallery-btn:hover {
+    background-color: #555;
+}

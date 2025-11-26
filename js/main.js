@@ -112,4 +112,18 @@ $(document).ready(function() {
         element.next('.error-message').hide();
     }
 
+    // --- GALLERY ANIMATION (jQuery) ---
+    
+    // Check if the toggle button exists
+    if ($('#toggle-gallery-btn').length) {
+        
+        $('#toggle-gallery-btn').on('click', function() {
+            // slideToggle: Animates the height to hide/show element
+            $('#gallery-container').slideToggle(600, function() {
+                // Optional: Log when animation is complete
+                console.log("Animation complete.");
+            });
+        });
+    }
+
 });

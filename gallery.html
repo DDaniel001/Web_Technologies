@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Pizza Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html" class="aktiv">Gallery</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <h2>Our Atmosphere</h2>
+            <p>Tekintsd meg éttermünket és ételeinket!</p>
+
+            <button id="toggle-gallery-btn">Galéria elrejtése / Megjelenítése</button>
+
+            <div id="gallery-container" class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/300x200/orange/white?text=Pizza+1" alt="Pizza 1">
+                    <p>Friss kemencés pizza</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/300x200/red/white?text=Chef" alt="Chef">
+                    <p>A séfünk munka közben</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/300x200/green/white?text=Restaurant" alt="Interior">
+                    <p>Hangulatos belső tér</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/300x200/brown/white?text=Ingredients" alt="Ingredients">
+                    <p>Friss alapanyagok</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pizza King</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
