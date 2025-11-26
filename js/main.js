@@ -1,49 +1,53 @@
 $(document).ready(function() {
     
-    // Csak akkor fusson le, ha a menu.html-en vagyunk (van pizza-lista ID)
-    if ($('#pizza-lista').length) {
+    // --- MENU PAGE LOGIC ---
+    
+    // Check if we are on the menu page (looking for #pizza-list)
+    if ($('#pizza-list').length) {
         
-        // AJAX hívás a JSON fájl betöltésére
+        // AJAX call to load JSON data
         $.ajax({
             url: 'js/data.json',
             dataType: 'json',
             success: function(data) {
-                console.log("Adatok sikeresen betöltve:", data);
+                console.log("Data loaded successfully:", data);
                 
-                // Végigmegyünk a pizzák listáján
-                $.each(data.pizzak, function(index, pizza) {
+                // Iterate through "pizzas" array
+                $.each(data.pizzas, function(index, pizza) {
                     
-                    // Feltétek összefűzése vesszővel (tömb kezelése)
-                    var feltetekSzoveg = pizza.feltetek.join(", ");
+                    // Join toppings array with commas
+                    var toppingsText = pizza.toppings.join(", ");
 
-                    // Új HTML elem (táblázat sor) összeállítása
-                    var ujSor = `
+                    // Create new HTML row
+                    var newRow = `
                         <tr>
-                            <td><strong>${pizza.nev}</strong></td>
-                            <td>${feltetekSzoveg}</td>
-                            <td>${pizza.ar} Ft</td>
-                            <td>[Kép: ${pizza.kep}]</td> 
+                            <td><strong>${pizza.name}</strong></td>
+                            <td>${toppingsText}</td>
+                            <td>${pizza.price} Ft</td>
+                            <td>[Image: ${pizza.image}]</td> 
                         </tr>
                     `;
 
-                    // Hozzáadás a táblázathoz
-                    $('#pizza-lista').append(ujSor);
+                    // Append the new row to the table body
+                    $('#pizza-list').append(newRow);
                 });
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.error("Hiba a betöltéskor:", textStatus, errorThrown);
-                $('#pizza-lista').html('<tr><td colspan="4">Hiba történt az adatok betöltésekor!</td></tr>');
+                console.error("Error loading data:", textStatus, errorThrown);
+                $('#pizza-list').html('<tr><td colspan="4">Error loading data!</td></tr>');
             }
         });
     }
 
+    // --- ORDER FORM VALIDATION ---
+
     $('#orderForm').on('submit', function(e) {
-        // Megakadályozzuk az alapértelmezett küldést
+        // Prevent default form submission
         e.preventDefault();
         
         let isValid = true;
         
-        // 1. Név ellenőrzése (nem lehet üres)
+        // 1. Validate Name (Required)
         const nameInput = $('#name');
         if (nameInput.val().trim() === "") {
             showError(nameInput, "A név megadása kötelező!");
@@ -52,7 +56,7 @@ $(document).ready(function() {
             clearError(nameInput);
         }
 
-        // 2. Pizza választás ellenőrzése
+        // 2. Validate Pizza Choice (Required)
         const pizzaInput = $('#pizza-choice');
         if (pizzaInput.val().trim() === "") {
             showError(pizzaInput, "Válassz egy pizzát a listából!");
@@ -61,7 +65,7 @@ $(document).ready(function() {
             clearError(pizzaInput);
         }
 
-        // 3. Dátum ellenőrzése
+        // 3. Validate Delivery Date (Required)
         const dateInput = $('#delivery-date');
         if (dateInput.val() === "") {
             showError(dateInput, "Kérlek válassz szállítási napot!");
@@ -70,7 +74,7 @@ $(document).ready(function() {
             clearError(dateInput);
         }
 
-        // 4. Cím ellenőrzése (min 10 karakter)
+        // 4. Validate Address (Min length check)
         const addressInput = $('#address');
         if (addressInput.val().length < 10) {
             showError(addressInput, "A cím túl rövid (min. 10 karakter)!");
@@ -79,30 +83,30 @@ $(document).ready(function() {
             clearError(addressInput);
         }
 
-        // 5. Checkbox ellenőrzése
+        // 5. Validate Terms Checkbox (Must be checked)
         const termsInput = $('#terms');
         if (!termsInput.is(':checked')) {
-            // A checkboxnál trükkös a hibaüzenet elhelyezése, így a szülő elembe tesszük
+            // Error message placement is tricky for checkboxes, targeting next sibling
             termsInput.next('label').next('.error-message').text("El kell fogadnod a feltételeket!").show();
             isValid = false;
         } else {
             termsInput.next('label').next('.error-message').hide();
         }
 
-        // Ha minden rendben, "elküldjük" az űrlapot
+        // If form is valid, simulate successful submission
         if (isValid) {
             $('#orderForm').hide();
-            $('#success-msg').fadeIn(); // jQuery animáció [cite: 26]
+            $('#success-msg').fadeIn(); // jQuery animation
         }
     });
 
-    // Segédfüggvény a hiba megjelenítésére 
+    // Helper function: Show error styling and message
     function showError(element, message) {
-        element.addClass('error-border'); // CSS osztály hozzáadása
-        element.next('.error-message').text(message).show(); // Üzenet kiírása
+        element.addClass('error-border');
+        element.next('.error-message').text(message).show();
     }
 
-    // Segédfüggvény a hiba törlésére
+    // Helper function: Clear error styling and message
     function clearError(element) {
         element.removeClass('error-border');
         element.next('.error-message').hide();

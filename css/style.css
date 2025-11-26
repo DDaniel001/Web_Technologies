@@ -1,4 +1,26 @@
-/* Űrlap formázása */
+/* --- General Page Styling --- */
+header { 
+    background-color: #f0f0f0; 
+    padding: 20px; 
+    text-align: center; 
+}
+
+/* --- Navigation Menu --- */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+/* Active menu item styling */
+.aktiv {
+    font-weight: bold;
+    color: darkred;
+}
+
+/* --- Form Styling --- */
 .order-container {
     max-width: 600px;
     margin: 0 auto;
@@ -17,24 +39,25 @@ label {
     font-weight: bold;
 }
 
+/* General input styling */
 input[type="text"],
 input[type="email"],
 textarea,
 input[list] {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc; /* Alap keret */
+    border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-/* HIBA ÁLLAPOTOK - Kötelező elem  */
+/* --- Error States (Validation) --- */
 .error-border {
-    border: 2px solid red !important; /* Piros keret */
+    border: 2px solid red !important; /* Forces red border on error */
     background-color: #ffe6e6;
 }
 
 .error-message {
     color: red;
     font-size: 0.9em;
-    display: none; /* Alapból rejtett */
+    display: none; /* Hidden by default */
 }

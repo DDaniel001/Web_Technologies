@@ -1,32 +1,32 @@
 {
-    "pizzak": [
+    "pizzas": [
         {
             "id": 1,
-            "nev": "Margherita",
-            "feltetek": ["paradicsomszósz", "mozzarella", "friss bazsalikom"],
-            "ar": 1890,
-            "kep": "margherita.jpg"
+            "name": "Margherita",
+            "toppings": ["paradicsomszósz", "mozzarella", "friss bazsalikom"],
+            "price": 1890,
+            "image": "margherita.jpg"
         },
         {
             "id": 2,
-            "nev": "Sonkás",
-            "feltetek": ["paradicsomszósz", "mozzarella", "főtt sonka"],
-            "ar": 2190,
-            "kep": "sonkas.jpg"
+            "name": "Sonkás",
+            "toppings": ["paradicsomszósz", "mozzarella", "főtt sonka"],
+            "price": 2190,
+            "image": "sonkas.jpg"
         },
         {
             "id": 3,
-            "nev": "Hawaii",
-            "feltetek": ["paradicsomszósz", "mozzarella", "sonka", "ananász"],
-            "ar": 2290,
-            "kep": "hawaii.jpg"
+            "name": "Hawaii",
+            "toppings": ["paradicsomszósz", "mozzarella", "sonka", "ananász"],
+            "price": 2290,
+            "image": "hawaii.jpg"
         },
         {
             "id": 4,
-            "nev": "Szalámis",
-            "feltetek": ["paradicsomszósz", "mozzarella", "paprikás szalámi"],
-            "ar": 2190,
-            "kep": "szalamis.jpg"
+            "name": "Szalámis",
+            "toppings": ["paradicsomszósz", "mozzarella", "paprikás szalámi"],
+            "price": 2190,
+            "image": "szalamis.jpg"
         }
     ]
 }
