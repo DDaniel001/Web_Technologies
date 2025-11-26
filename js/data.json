@@ -1,0 +1,32 @@
+{
+    "pizzak": [
+        {
+            "id": 1,
+            "nev": "Margherita",
+            "feltetek": ["paradicsomszósz", "mozzarella", "friss bazsalikom"],
+            "ar": 1890,
+            "kep": "margherita.jpg"
+        },
+        {
+            "id": 2,
+            "nev": "Sonkás",
+            "feltetek": ["paradicsomszósz", "mozzarella", "főtt sonka"],
+            "ar": 2190,
+            "kep": "sonkas.jpg"
+        },
+        {
+            "id": 3,
+            "nev": "Hawaii",
+            "feltetek": ["paradicsomszósz", "mozzarella", "sonka", "ananász"],
+            "ar": 2290,
+            "kep": "hawaii.jpg"
+        },
+        {
+            "id": 4,
+            "nev": "Szalámis",
+            "feltetek": ["paradicsomszósz", "mozzarella", "paprikás szalámi"],
+            "ar": 2190,
+            "kep": "szalamis.jpg"
+        }
+    ]
+}
