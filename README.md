@@ -56,4 +56,6 @@ pizzeria-projekt/
 │   ├── main.js         # JavaScript logika (AJAX, Validáció)
 │   └── data.json       # Termékadatbázis
 │
-└── images/             # Képek helye
+├── images/             # Képek helye
+│
+└── sounds/             # Hangok helye
