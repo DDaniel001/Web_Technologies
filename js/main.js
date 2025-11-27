@@ -15,16 +15,22 @@ $(document).ready(function() {
                 // Iterate through "pizzas" array
                 $.each(data.pizzas, function(index, pizza) {
                     
-                    // Join toppings array with commas
+                    // Feltétek összefűzése
                     var toppingsText = pizza.toppings.join(", ");
 
-                    // Create new HTML row
+                    // Kép elérési útja: feltételezzük, hogy a JSON-ban csak a fájlnév van (pl. "margherita.jpg")
+                    // Ezért elé írjuk az "images/" mappát.
+                    var imagePath = "images/" + pizza.image; 
+
+                    // Új sor létrehozása - JAVÍTOTT KÉP MEGJELENÍTÉSSEL
                     var newRow = `
                         <tr>
                             <td><strong>${pizza.name}</strong></td>
                             <td>${toppingsText}</td>
                             <td>${pizza.price} Ft</td>
-                            <td>[Image: ${pizza.image}]</td> 
+                            <td>
+                                <img src="${imagePath}" alt="${pizza.name}" style="width: 100px; height: auto; border-radius: 5px;">
+                            </td> 
                         </tr>
                     `;
 
@@ -126,34 +132,57 @@ $(document).ready(function() {
         });
     }
 
-    // --- VIDEO CONTROL (Custom JS) ---
+    // --- VIDEO & SOUND CONTROL (Custom JS) ---
 
-    // Check if video exists
+    // Check if the video exists on the page
     if ($('#promo-video').length) {
         
-        // Get the native DOM element from jQuery object
         var videoElement = $('#promo-video').get(0);
+        var soundElement = $('#video-sound').get(0); // Get the audio element
+
+        // --- 1. BUTTON CONTROLS ---
 
         // Play Button
         $('#btn-play').on('click', function() {
             videoElement.play();
+            // No need to play sound here, the 'play' event listener below handles it
         });
 
         // Pause Button
         $('#btn-pause').on('click', function() {
             videoElement.pause();
+            // No need to pause sound here, the 'pause' event listener below handles it
         });
 
-        // Mute Button (Toggle)
+        // Mute Button (Mutes both video and audio)
         $('#btn-mute').on('click', function() {
             videoElement.muted = !videoElement.muted;
+            soundElement.muted = !soundElement.muted;
             
-            // Optional: Update button text
-            if(videoElement.muted) {
+            // Update button text
+            if(soundElement.muted) {
                 $(this).text("Némítás feloldása 🔊");
             } else {
                 $(this).text("Némítás 🔇");
             }
+        });
+
+        // --- 2. SYNCHRONIZATION ---
+
+        // If the video starts (via button or click), start the sound too
+        $(videoElement).on('play', function() {
+            soundElement.play();
+        });
+
+        // If the video pauses (via button or click), pause the sound too
+        $(videoElement).on('pause', function() {
+            soundElement.pause();
+        });
+
+        // If the video ends, stop the sound and rewind to the beginning
+        $(videoElement).on('ended', function() {
+            soundElement.pause();
+            soundElement.currentTime = 0;
         });
     }
 

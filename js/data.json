@@ -12,7 +12,7 @@
             "name": "Sonkás",
             "toppings": ["paradicsomszósz", "mozzarella", "főtt sonka"],
             "price": 2190,
-            "image": "sonkas.jpg"
+            "image": "ham.jpg"
         },
         {
             "id": 3,
@@ -26,7 +26,7 @@
             "name": "Szalámis",
             "toppings": ["paradicsomszósz", "mozzarella", "paprikás szalámi"],
             "price": 2190,
-            "image": "szalamis.jpg"
+            "image": "salami.jpg"
         }
     ]
 }

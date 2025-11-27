@@ -1,9 +1,9 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --primary-color: #e74c3c; /* Pizza piros */
-    --secondary-color: #c0392b; /* Sötét piros */
-    --dark-bg: #2c3e50; /* Sötétkék a menühöz */
-    --light-bg: #ecf0f1; /* Törtfehér háttér */
+    --primary-color: #e74c3c;
+    --secondary-color: #c0392b;
+    --dark-bg: #2c3e50;
+    --light-bg: #ecf0f1;
     --text-color: #333;
     --white: #ffffff;
 }
@@ -17,13 +17,13 @@ body {
     line-height: 1.6;
 }
 
-/* --- Header & Navigation [cite: 18] --- */
+/* --- Header & Navigation --- */
 header { 
     background-color: var(--dark-bg); 
     padding: 15px 0; 
     text-align: center; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: sticky; /* Menü rögzítése görgetéskor */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -46,7 +46,7 @@ nav ul li {
     margin: 0 15px;
 }
 
-/* Linkek formázása [cite: 20] */
+/* Link formatting */
 nav ul li a {
     text-decoration: none;
     color: #bdc3c7;
@@ -79,9 +79,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* --- Hero Section (Főoldalhoz) --- */
+/* --- Hero Section  --- */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -113,8 +113,6 @@ h2 {
     background-color: var(--secondary-color);
 }
 
-/* --- MODERN TÁBLÁZAT FORMÁZÁS (Kötelező elem!) [cite: 17] --- */
-/* Ez teszi modernné a kötelező táblázatot */
 #pizza-table {
     width: 100%;
     border-collapse: collapse;
@@ -126,7 +124,7 @@ h2 {
 }
 
 #pizza-table thead tr {
-    background-color: var(--primary-color); /* Háttérszín [cite: 19] */
+    background-color: var(--primary-color);
     color: var(--white);
     text-align: left;
     font-weight: bold;
@@ -154,7 +152,7 @@ h2 {
     cursor: default;
 }
 
-/* --- Form Styling [cite: 21] --- */
+/* --- Form Styling --- */
 .order-container { max-width: 600px; margin: 0 auto; }
 .form-group { margin-bottom: 20px; }
 label { display: block; margin-bottom: 8px; font-weight: bold; }
@@ -171,14 +169,28 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-/* Validáció hiba design */
+/* Validation error design */
 .error-border { border: 2px solid red !important; background-color: #fff0f0; }
 .error-message { color: red; font-size: 0.9em; display: none; margin-top: 5px; }
 
 /* --- Gallery & Buttons --- */
 .gallery-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-.gallery-item { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; background: white; padding: 10px; }
+.gallery-item { border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                transition: transform 0.3s;
+                background: white;
+                padding: 10px;
+                width: 300px;
+                text-align: center;}
 .gallery-item:hover { transform: scale(1.03); }
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
 
 button {
     background-color: var(--dark-bg);
